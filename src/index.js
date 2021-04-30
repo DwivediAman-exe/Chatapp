@@ -28,15 +28,17 @@ io.on('connection', (socket) => {
 		const filter = new Filter();
 
 		if(filter.isProfane(message)) {
-			return callback(filter.clean(message))
+			io.emit('message', filter.clean(message))
 		}
-
-		io.emit('message', message)
+		else {
+			io.emit('message', message)
+		}
+		
 		callback()
 	})
 
 	socket.on('sendLocation', (coords,callback) => {
-		io.emit('message', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
+		io.emit('locationMessage', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
 		callback()
 	})
 
