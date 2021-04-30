@@ -9,54 +9,17 @@
 	<link rel="stylesheet" href="/css/styles.min.css">
 </head>
 <body>
-	<div class="chat">
-		<div class="chat__sidebar">
-		</div>
-
-		<div class="chat__main">
-			<div id="messages" class="chat__messages">
-			</div>
-			
-			<div class="compose">
-				<form id="message-form">
-					<input name="message" placeholder="message">
-					<button>send</button>
-				</form>
-				<button id="send-location">Send Location</button>
-			</div>
+	<div class="centered-form">
+		<div class="centered-form__box">
+			<h1>Join</h1>
+			<form action="/chat.html">
+				<label>Display name</label>
+				<input type="text" name="username" placeholder="Display name" required>
+				<label>Room name</label>
+				<input type="text" name="room" placeholder="Room name" required>
+				<button>Start the party</button>
+			</form>
 		</div>
 	</div>
-
-
-	<!-- Templates -->
-	<script id="message-template" type="text/html">
-		<div class="message">
-			<p>
-				<span class="message__name">Some name</span>
-				<span class="message__meta">{{createdAt}}</span>
-			</p>
-			<p>{{message}}</p>
-		</div>
-	</script>
-
-	<script id="location-template" type="text/html">
-		<div class="message">
-			<p>
-				<span class="message__name">Some name</span>
-				<span class="message__meta">{{createdAt}}</span>
-			</p>
-			<p><a href="{{url}}" target="_blank">My location</a></p>
-		</div>
-	</script>
-
-	<!-- for dynamic rendering -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
-	<!-- for timestamps -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
-	<!-- script served by socket.io to the client -->
-	<script src="/socket.io/socket.io.js"></script>
-	<!-- now cliet side js has access to websocket functions -->
-	<script src="/js/chat.js"></script>
 </body>
 </html>
