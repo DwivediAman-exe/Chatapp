@@ -2,8 +2,7 @@ const express = require('express')
 const path = require('path')
 const http = require('http')
 const socketio = require('socket.io')
-const { Socket } = require('dgram')
-
+const Filter = require('bad-words')
 
 var app = express()
 // creating a new webserver
@@ -25,12 +24,20 @@ io.on('connection', (socket) => {
 
 	socket.broadcast.emit('message', 'A new user has joined the chat :)')
 
-	socket.on('sendMessage', (message) => {
+	socket.on('sendMessage', (message, callback) => {
+		const filter = new Filter();
+
+		if(filter.isProfane(message)) {
+			return callback(filter.clean(message))
+		}
+
 		io.emit('message', message)
+		callback()
 	})
 
-	socket.on('sendLocation', (location) => {
-		io.emit('message', `https://google.com/maps?q=${location.latitude},${location.longitude}`)
+	socket.on('sendLocation', (coords,callback) => {
+		io.emit('message', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
+		callback()
 	})
 
 	socket.on('disconnect', () => {
