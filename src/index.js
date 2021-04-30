@@ -3,6 +3,7 @@ const path = require('path')
 const http = require('http')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
+const {generateMessage} = require('./utils/messages')
 
 var app = express()
 // creating a new webserver
@@ -20,18 +21,18 @@ app.use(express.static(publicDirectoryPath))
 io.on('connection', (socket) => {
 	console.log('New websocket connection added')
 
-	socket.emit('message', 'welcome')
+	socket.emit('message', generateMessage('Welcome !'))
 
-	socket.broadcast.emit('message', 'A new user has joined the chat :)')
+	socket.broadcast.emit('message', generateMessage('A new user has joined the chat :)'))
 
 	socket.on('sendMessage', (message, callback) => {
 		const filter = new Filter();
 
 		if(filter.isProfane(message)) {
-			io.emit('message', filter.clean(message))
+			io.emit('message', generateMessage(filter.clean(message)))
 		}
 		else {
-			io.emit('message', message)
+			io.emit('message', generateMessage(message))
 		}
 		
 		callback()
@@ -43,7 +44,7 @@ io.on('connection', (socket) => {
 	})
 
 	socket.on('disconnect', () => {
-		io.emit('message', 'A user has left the chat :(')
+		io.emit('message', generateMessage('A user has left the chat :(' ))
 	})
 })
 
