@@ -45,10 +45,12 @@ button {
     color: white;
     font-size: 16px;
     transition: background .3s ease;
+		border-radius: 10px;
 }
 
 button:hover {
-    background: #6b47b8;
+    background: #6238bd;
+		box-shadow: 2px 4px 4px rgba(9, 248, 236, 0.37);
 }
 
 button:disabled {
@@ -59,7 +61,7 @@ button:disabled {
 /* Join Page Styles */
 
 .centered-form {
-    background: #333744;
+    background: #7f97e9;
     width: 100vw;
     height: 100vh;   
     display: flex;
@@ -68,14 +70,25 @@ button:disabled {
 }
 
 .centered-form__box {
-    box-shadow: 0px 0px 17px 1px #1D1F26;
-    background: #F7F7FA;
+    background: #ebebf3;
     padding: 24px;
-    width: 250px;
+    width: 300px;
+		border-radius: 5px;
+		box-shadow: 2px 5px 10px rgb(62, 49, 246);
+}
+
+.centered-form__box h1 i {
+	color: #6238bd;
+}
+
+.centered-form__box label {
+	color: rgb(65, 60, 60);
+	font-weight: 500;
 }
 
 .centered-form button {
     width: 100%;
+		border-radius: 5px;
 }
 
 .centered-form input {
@@ -87,12 +100,13 @@ button:disabled {
 
 .chat {
     display: flex;
+		background-color: rgb(245, 245, 234);
 }
 
 .chat__sidebar {
     height: 100vh;
     color: white;
-    background: #333744;
+    background: #73cca0;
     width: 225px;
     overflow-y: scroll
 }
@@ -140,6 +154,9 @@ button:disabled {
     flex-shrink: 0;
     margin-top: 16px;
     padding: 24px;
+		background-color: rgb(206, 206, 194);
+		border-top-left-radius: 14px;
+		border-top-right-radius: 14px;
 }
 
 .compose form {
@@ -153,6 +170,8 @@ button:disabled {
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;
+		border-top-left-radius: 14px;
+		border-top-right-radius: 14px;
     flex-grow: 1;
 }
 
@@ -162,22 +181,36 @@ button:disabled {
 
 /* Chat Sidebar Styles */
 
+.room {
+	font-weight: 400;
+  font-size: 22px;
+	background: #0e5c51;
+	padding: 12px 20%;
+}
+
 .room-title {
     font-weight: 400;
     font-size: 22px;
-    background: #2c2f3a;
-    padding: 24px;   
+    padding: 20px;   
 }
 
 .list-title {
+		background: #0e5c51;
     font-weight: 500;
-    font-size: 18px;
-    margin-bottom: 4px;
-    padding: 12px 24px 0 24px;
+    font-size: 22px;
+		padding: 12px 20%;
+}
+
+.userimg {
+	color: rgb(106, 93, 223);
 }
 
 .users {
+	color: rgb(255, 255, 255);
     list-style-type: none;
+		font-size: large;
     font-weight: 300;
-    padding: 12px 24px 0 24px;
+		margin-bottom: 10px;
+    padding: 10px 10px 10px 20px;
+		
 }

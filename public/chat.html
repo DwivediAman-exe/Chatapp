@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Chat App</title>
 	<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="/css/styles.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+	integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -53,11 +55,12 @@
 
 	
 	<script id="sidebar-template" type="text/html">
-		<h2 class="room-title">Room - {{room}}</h2>
-		<h3 class="list-title">Users</h3>
+		<h2 class="room"> <i class="fas fa-house-user"></i> Room </h2>
+		<h2 class="room-title">{{room}}</h2>
+		<h3 class="list-title"><i class="fas fa-users"></i> Users</h3>
 		<ul class="users">
 			{{#users}}
-				<li>{{username}}</li>
+				<li><i class=" userimg fas fa-user-ninja"></i> {{username}}</li>
 			{{/users}}
 		</ul>
 	</script>
