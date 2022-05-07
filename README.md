@@ -1,4 +1,4 @@
-# Realtime_Code_Sharing 
+# Realtime_Chat_App
 
 ## Link - https://lets-chat-v1.herokuapp.com/
 
